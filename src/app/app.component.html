@@ -1,0 +1,27 @@
+<app-header></app-header>
+<h1>Todo list app</h1>
+<p>
+  De todolist app maakt gebruik van de in-memory-web-api om met mock data API calls te kunnen maken. In 
+  de app.mode.ts file wordt deze mock API geconfigureerd met een delay van 1000ms per request.
+</p>
+<form #addForm="ngForm" (ngSubmit)="add(addForm)">
+  <input type="text" name="name" placeholder="todo item..." [(ngModel)]="name" required />
+  <input type="submit" name="submit" value="add" [disabled]="!addForm.form.valid" />
+</form>
+
+<article *ngFor="let item of todoList$ | async">
+  {{item.id}}.
+  <span (click)="todoClick(item)" class="name" *ngIf="!editing || (editingItem != item)">{{item.name}}</span>
+
+  <div *ngIf="editing && (editingItem == item)" class="updateform">
+    <input type="text" [(ngModel)]="editingItem.name" />
+    <button (click)="saveEdit()">Save</button>
+  </div>
+
+  <button (click)="delete(item)" class="right">delete</button>
+  <button (click)="edit(item)" class="right">edit</button>
+</article>
+
+<section class="search">
+  <input type="text" placeholder="search..." #searchTerm (keyup)="search(searchTerm.value)" />
+</section>

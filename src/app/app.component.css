@@ -1,0 +1,62 @@
+h1, p{
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+article{
+    background-color: #efefef;
+    padding: 10px;
+    margin: 10px auto;
+    width: 80%;
+    overflow: auto;
+    border: 1px solid #bfbfbf;
+}
+
+article:hover{
+    background-color: #dfdfdf;
+}
+
+.name{
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+.right {
+    float: right;
+    padding: 4px;
+    margin: 2px;
+}
+
+form, .search{
+    display: block;
+    margin: 10px auto;
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #afafaf;
+    background-color: #58A618;
+}
+
+form input[type="text"]{
+    box-sizing: border-box;
+    width: 68%;
+    padding: 10px;
+    margin: 1%;
+}
+
+form input[type="submit"]{
+    box-sizing: border-box;
+    width: 28%;
+    padding: 10px;
+    margin: 1%;
+}
+
+.search input {
+    padding: 10px;
+    margin: 1%;
+    width: 99%;
+    box-sizing: border-box;
+}
+
+.updateform{
+    display: inline;
+}
