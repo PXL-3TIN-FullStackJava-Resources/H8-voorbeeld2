@@ -1,1 +1,16 @@
-<p>todo-list works!</p>
+
+
+<article *ngFor="let item of todoList$ | async">
+    {{item.id}}.
+    <span (click)="todoClick(item)" class="name" *ngIf="!editing || (editingItem != item)">{{item.name}}</span>
+  
+    <div *ngIf="editing && (editingItem == item)" class="updateform">
+      <input type="text" [(ngModel)]="editingItem.name" />
+      <button (click)="saveEdit()">Save</button>
+    </div>
+  
+    <button (click)="delete(item)" class="right">delete</button>
+    <button (click)="edit(item)" class="right">edit</button>
+</article>
+
+<app-search (searchEvent)="search($event)"></app-search>

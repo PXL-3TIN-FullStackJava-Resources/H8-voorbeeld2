@@ -10,11 +10,7 @@ import { Todo } from './shared/models/todo.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  todoList$!: Observable<Todo[]>;
-  editing: boolean = false;
-  editingItem: Todo | null = null;
-  name: string = '';
-
+  todoItems$!: Observable<Todo[]>;
   constructor(private ts: TodoService) { }
 
   ngOnInit(): void {
@@ -22,39 +18,8 @@ export class AppComponent implements OnInit {
   }
 
   fetchList(): void{
-    this.todoList$ = this.ts.getTodos();
+    console.log("fetching data list");
+    this.todoItems$ = this.ts.getTodos();
   }
-
-  add(form: any): void{
-    this.ts.addTodo({name: form.value.name}).subscribe(_ => {
-      this.fetchList()
-      form.reset();
-    });
-  }
-
-  delete(item: Todo): void{
-    this.ts.removeTodo(item).subscribe(_ => this.fetchList());
-  }
-
-  edit(item : Todo): void{
-    this.editing = true;
-    this.editingItem = item;
-  }
-
-  saveEdit(): void{
-    this.ts.updateTodo(this.editingItem!).subscribe(_ => {
-      this.editing = false;
-      this.editingItem = null;
-    });
-   
-  }
-
-  todoClick(item: Todo): void{
-    this.ts.getTodo(item.id).subscribe(data => alert(data.name));
-  }
-
-  search(searchTerm: string): void{
-    this.todoList$ = this.ts.getTodos(searchTerm);
-  }
-
+  
 }

@@ -1,0 +1,15 @@
+.search input {
+    padding: 10px;
+    margin: 1%;
+    width: 99%;
+    box-sizing: border-box;
+}
+
+form, .search{
+    display: block;
+    margin: 10px auto;
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #afafaf;
+    background-color: #58A618;
+}

@@ -1,9 +1,10 @@
 export class Todo {
-    id: number;
+    id?: number;
     name: string;
 
-    constructor(id: number, name: string) {
+    constructor(name: string, id?: number) {
         this.id = id;
         this.name = name;
     }
+    
 }

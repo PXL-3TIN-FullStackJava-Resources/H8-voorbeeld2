@@ -1,1 +1,4 @@
-<p>add-todo works!</p>
+<form #addForm="ngForm" (ngSubmit)="add(addForm)">
+    <input type="text" name="name" placeholder="todo item..." [(ngModel)]="name" required />
+    <input type="submit" name="submit" value="add" [disabled]="!addForm.form.valid" />
+</form>
